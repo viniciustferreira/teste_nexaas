@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Instruções para o uso dos endpoints: 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+São 3 tipos de dados:
+  * Products -produtos.
+  * Stores -lojas.
+  * StockItems -Os itens de estoque para cada loja.
+  
+Tanto products '/v1/product_api/' como stores '/v1/store_api/' tem os mesmos métodos:
+  '/create' - cria um novo registro - parametros: 'name' - nome (obrigatório),
+    'address' - endereço (obrigatório) (apenas no stores),
+    'cost' - preço de custo (obrigatório) (apenas no products),
+    'description' - descrição (obrigatório) (apenas no products)
+    
+  '/update' - autaliza o registro - parametros: 'id' - o id do resgitro (obrigatório),
+    'name' - nome a ser alterado(opcional),
+    'address' - endereço a ser alterado (opcional) (apenas no stores),
+    'cost' - preço de custo a ser alterado(opcional) (apenas no products),
+    'description' - descrição a ser alterada(opcional) (apenas no products)
+    
+  '/search' - busca de um registro - parametro: 'id' - o id do registro a ser buscado (obrigatório)
+  '/delete' - delete um registro - parametro: 'id' - o id do registro a ser deletado (obrigatório)
+  
+  No caso do StockItems '/v1/stock_item_api/ existem 2 métodos:
+  
+  '/add_items' - Ele atualiza o valor de um produto de uma loja ou, se não existir, cria um novo item com a quantidade passada. parâmetros: product_id - id do produto, store_id - id da loja, quantity: quantidade a ser somada ao valor do estoque ou a ser iniciada se não existir.  
+  
+  'remove_items' - Remove um valor da quantidade dos produtos de uma loja. parâmetros: product_id - id do produto, store_id - id da loja, quantity: quantidade a ser diminuída do valor do estoque (não pode ser maior que o valor do estoque).
+     
