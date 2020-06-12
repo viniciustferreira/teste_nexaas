@@ -27,4 +27,9 @@ Tanto products '/v1/product_api/' como stores '/v1/store_api/' tem os mesmos mé
   '/add_items' - Ele atualiza o valor de um produto de uma loja ou, se não existir, cria um novo item com a quantidade passada. parâmetros: product_id - id do produto, store_id - id da loja, quantity: quantidade a ser somada ao valor do estoque ou a ser iniciada se não existir.  
   
   'remove_items' - Remove um valor da quantidade dos produtos de uma loja. parâmetros: product_id - id do produto, store_id - id da loja, quantity: quantidade a ser diminuída do valor do estoque (não pode ser maior que o valor do estoque).
-     
+ 
+ PS: Para rodar ele em ambiente local, basta baixar as dependências com bundle install, depois criar a base de dados com rails db:create/rails db:migrate e rails s para subir o servidor.
+ 
+ Tentei criar o app no Heroku, como foi pedido, mas houve um problema ao baixar as dependências e não consgui resolver a tempo. 
+ 
+ 
