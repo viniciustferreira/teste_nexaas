@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_06_10_194358) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "cost"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_06_10_194358) do
   end
 
   create_table "stock_items", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "store_id"
+    t.bigint "product_id"
+    t.bigint "store_id"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
